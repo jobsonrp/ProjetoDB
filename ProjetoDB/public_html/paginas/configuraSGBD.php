@@ -39,7 +39,7 @@
                                         <option value="mysql" selected>MySQL</option>
                                     </select>
                                 </div>
-                                <button type="submit" name="config" value="true" class="btn btn-success btn-block">Configuarar</button>
+                                <button type="submit" name="config" value="true" class="btn btn-success btn-block">Configurar</button>
 
                             </fieldset>
                         </form>

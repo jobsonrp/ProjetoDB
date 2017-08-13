@@ -49,13 +49,8 @@
         <div class="col-sm-6">
             <h2>Eventos</h2>
         </div>
-
-
-
-
     </div>
 </header>
-
 
 <?php
 

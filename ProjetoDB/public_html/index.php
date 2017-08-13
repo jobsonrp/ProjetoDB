@@ -11,6 +11,7 @@
         header("Location: pagina_inicial.php");  
         die();
     }
+    
     if (isset($_POST['login'])) {
         $username = $_POST['loguin'];
         $senha =  Md5($_POST['password']);
@@ -60,7 +61,7 @@
                         <form method="POST" role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" required placeholder="Loguin" name="loguin" type="text" autofocus>
+                                    <input class="form-control" required placeholder="Login" name="loguin" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" required placeholder="Senha" name="password" type="password">

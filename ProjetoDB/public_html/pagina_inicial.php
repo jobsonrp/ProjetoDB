@@ -72,14 +72,25 @@
                 </div>
             </div>
         </a>
-    </div>
-
-
+    </div>  
 
 </div>
+
+<div class="container">
+    <hr>
+        <button type="button" class="btn-primary btn-lg pull-right " onclick="logout();">SAIR</button>
+        <h2>Deseja sair do sistema?</h2>
+        <samp class="clearfix"></samp>
+    <hr>
+</div>  
 </main> 
     <?php include 'static/footer.php'; ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function logout(){
+            window.location.href='paginas/logout.php';
+        };
+    </script>
 </body>
 </html>

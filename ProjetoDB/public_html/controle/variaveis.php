@@ -1,1 +1,1 @@
-<?php  define('DB_HOSTNAME', '127.0.0.1'); define('DB_USERNAME', 'root');define('DB_PASSWORD', 'usbw');define('DB_DRIVER', 'mysql');
+<?php  define('DB_HOSTNAME', 'localhost'); define('DB_USERNAME', 'id2507325_adminev');define('DB_PASSWORD', '12345ev');define('DB_DRIVER', 'mysql');

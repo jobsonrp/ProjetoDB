@@ -6,11 +6,7 @@
         header("Location: ../index.php");  
         session_destroy();
     }
-
-    
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,29 +38,23 @@
   <hr />
   <div class="row">
     <div class="form-group col-md-7">
-      <label for="name">Nome  do Evento </label>
+      <label for="name">Nome do Evento </label>
       <input type="text" class="form-control" name="Enome">
     </div>
 
     <div class="form-group col-md-3">
       <label for="campo2">Descrição do Evento</label>
-      <input type="text" class="form-control" name="edescricao">
+      <input type="text" class="form-control" name="Edescricao">
     </div>
 
     <div class="form-group col-md-2">
       <label for="campo3">Data do Evento</label>
-      <input type="date" class="form-control" name="dataevento">
+      <input type="date" class="form-control" name="dataEvento">
     </div>
-
-    <div class="form-group col-md-12">
-      <label for="campo3">Tipo do Evento</label>
-      <input type="text" class="form-control" name="tipoevento">
-    </div>
-
 
     <div class="form-group col-md-5">
       <label for="campo2">Ambiente</label>
-      <select name="ambiente"  class="form-control">
+      <select name="codigoAmbiente"  class="form-control">
       <?php 
         $stmt = Conexao::conectar()->query("SELECT * FROM ambiente");
         $exite = $stmt->rowCount();
@@ -78,7 +68,7 @@
 
     <div class="form-group col-md-5">
       <label for="campo2">Tipo de Evento</label>
-      <select name="descricao"  class="form-control">
+      <select name="codigoTipoEvento"  class="form-control">
 
       <?php 
         $stmt = Conexao::conectar()->query("SELECT * FROM tipoevento");
