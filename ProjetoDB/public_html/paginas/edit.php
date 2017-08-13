@@ -1,11 +1,21 @@
 <?php 
-    require "../controle/conf.php"; 
-    $codigos =  $_GET['codigo'];
+    require "../controle/conf.php";
+    session_start();
 
-    $stmt = Crud::busca('evento', $codigos);
+    if(!isset($_SESSION['UserLog'])){
+        header("Location: ../index.php");  
+        session_destroy();
+    }
+
+    $codigos =  $_GET['codigo'];
+    date_default_timezone_set('UTC');
+
+    $sql = "SELECT * FROM evento Natural join tipoevento Natural join ambiente WHERE codigoEvent=".$codigos;
+    $stmt = Conexao::conectar()->query($sql);
     $exite = $stmt->rowCount();
     $result = $stmt->fetch(PDO::FETCH_OBJ);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,36 +42,54 @@
 
 <h2>Editar Evento</h2>
 
-<form action="add.php" method="post">
+<form action="" method="post">
 
   <hr />
   <div class="row">
+
+
+    <div class="form-group col-md-12">
+      <input type="hidden" class="form-control" name="codigoEvent" value="<?php echo $result->codigoEvent;?>" >
+    </div>
+
     <div class="form-group col-md-7">
       <label for="name">Nome  do Evento </label>
       <input type="text" class="form-control" name="Enome" value="<?php echo $result->Enome;?>" >
     </div>
 
+
+
     <div class="form-group col-md-3">
       <label for="campo2">Descrição do Evento</label>
-      <input type="text" class="form-control" name="descricao" value="<?php echo $result->Edescricao;?>">
+      <input type="text" class="form-control" name="edescricao" value="<?php echo $result->Edescricao;?>">
     </div>
 
     <div class="form-group col-md-2">
       <label for="campo3">Data do Evento</label>
-      <input type="date" class="form-control" name="dataEvento" value="<?php echo $result->dataEvento;?>">
+      <input type="date" class="form-control" name="dataevento" value="<?php echo $result->dataEvento;?>">
     </div>
 
     <div class="form-group col-md-12">
       <label for="campo3">Tipo do Evento</label>
-      <input type="text" class="form-control" name="dataEvento" value="<?php echo $result->codTipoEvento;?>" >
+      <input type="text" class="form-control" name="tipoevento" value="<?php echo $result->descricao;?>" >
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="campo2">Ambiente </label>
+      <input type="text" class="form-control" name="ambiente" value="<?php echo $result->codigoAmbiente;?>">
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="campo2">Tipo de Evento</label>
+      <input type="text" class="form-control" name="descricao" value="<?php echo $result->descricao;?>">
     </div>
 
   </div>
 
   <div id="actions" class="row">
     <div class="col-md-12">
-      <button type="submit" class="btn btn-primary">Salvar</button>
-      <a href="eventos.php" class="btn btn-default">Cancelar</a>
+      <button type="submit" class="btn btn-sm  btn-primary">Salvar</button>
+      <a href="eventos.php" class="btn btn-sm  btn-default">Cancelar</a>
     </div>
   </div>
 

@@ -1,6 +1,14 @@
-<?php
-  require "../controle/conf.php"; 
-  $stmt = Crud::buscaAll('evento');
+<?php 
+    require "../controle/conf.php";
+    session_start();
+
+    if(!isset($_SESSION['UserLog'])){
+        header("Location: ../index.php");  
+        session_destroy();
+    }
+
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -40,25 +48,54 @@
 
     <div class="form-group col-md-3">
       <label for="campo2">Descrição do Evento</label>
-      <input type="text" class="form-control" name="descricao">
+      <input type="text" class="form-control" name="edescricao">
     </div>
 
     <div class="form-group col-md-2">
       <label for="campo3">Data do Evento</label>
-      <input type="date" class="form-control" name="dataEvento">
+      <input type="date" class="form-control" name="dataevento">
     </div>
 
     <div class="form-group col-md-12">
       <label for="campo3">Tipo do Evento</label>
-      <input type="text" class="form-control" name="dataEvento">
+      <input type="text" class="form-control" name="tipoevento">
     </div>
 
+
+    <div class="form-group col-md-5">
+      <label for="campo2">Ambiente</label>
+      <select name="ambiente"  class="form-control">
+      <?php 
+        $stmt = Conexao::conectar()->query("SELECT * FROM ambiente");
+        $exite = $stmt->rowCount();
+        while ($result =$stmt->fetch(PDO::FETCH_OBJ)) { ?>
+
+        <option value="<?php echo $result->codigoAmbiente; ?>"><?php echo 'Codigo'.$result->codigoAmbiente.' Tipo: '.$result->ambiente; ?></option>
+      
+      <?php } ?>
+      </select>
+    </div>
+
+    <div class="form-group col-md-5">
+      <label for="campo2">Tipo de Evento</label>
+      <select name="descricao"  class="form-control">
+
+      <?php 
+        $stmt = Conexao::conectar()->query("SELECT * FROM tipoevento");
+        $exite = $stmt->rowCount();
+        while ($result =$stmt->fetch(PDO::FETCH_OBJ)) { ?>
+
+        <option value="<?php echo $result->codigoTipoEvento; ?>"><?php echo $result->descricao; ?></option>
+      
+      <?php } ?>
+      </select>
+    </div>
   </div>
 
   <div id="actions" class="row">
     <div class="col-md-12">
-      <button type="submit" class="btn btn-primary">Salvar</button>
-      <a href="eventos.php" class="btn btn-default">Cancelar</a>
+      <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+      <a href="eventos.php" class="btn btn-sm btn-default">Cancelar</a>
     </div>
   </div>
 

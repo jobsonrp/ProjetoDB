@@ -9,7 +9,9 @@
             </button>
             <a href="index.php" class="navbar-brand">Eclipse Eventos</a>
         </div>
+
         <div id="navbar" class="navbar-collapse collapse">
+            <!--
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evento
@@ -22,9 +24,22 @@
 
                 </li>
             </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="?deslogar">Sair</a></li>
-                </ul>
+-->
+
+
+<ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo $_SESSION['nome']; ?> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!-- <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li> -->
+            <li><a href="?deslogar"><i class="fa fa-sign-in" aria-hidden="true"></i> Sair</a></li>
+          </ul>
+        </li>
+      </ul>
+
         </div>
     </div>
 </nav>

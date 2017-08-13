@@ -15,7 +15,8 @@
         $username = $_POST['loguin'];
         $senha =  Md5($_POST['password']);
 
-        $sql = "SELECT  `colunaSenha` as `senha`, `ColunaLogin` as `valor`  FROM `tabelausuarios` where ColunaLogin = ? and colunaSenha = ? ;";
+        $sql = "SELECT * FROM `adminusuarios` where Login = ? and senha = ? ;";
+
 
         $consulta = Conexao::conectar()->prepare($sql);
         $consulta->bindParam(1, $username, PDO::PARAM_STR);
@@ -30,6 +31,7 @@
             $_SESSION['UserLog'] = true;
             $_SESSION['nome_user'] = $username;
             $_SESSION['nome_password'] = $senha;
+            $_SESSION['nome'] = $linha['nome'];
             header("Location: pagina_inicial.php"); 
         }
     }
@@ -51,19 +53,19 @@
                 <div class="login-panel panel panel-default">
                     
                     <div class="panel-heading">
-                        <h3 class="panel-title">Login:</h3>
+                        <h3 class="panel-title">Login</h3>
                     </div>
 
                     <div class="panel-body">
                         <form method="POST" role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" required placeholder="Login" name="login" type="text" autofocus>
+                                    <input class="form-control" required placeholder="Loguin" name="loguin" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" required placeholder="Senha" name="password" type="password">
                                 </div>
-                                <button type="submit" name="login" value="true" class="btn btn-success btn-block">Login</button>
+                                <button type="submit" name="login" value="true" class="btn btn-success btn-block">Login</button>          
                             </fieldset>
                         </form>
                     </div>

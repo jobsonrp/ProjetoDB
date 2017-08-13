@@ -6,7 +6,7 @@
     }
     if (isset($_GET['deslogar'])) {
         session_destroy();
-        header("Location: index.php");  
+        header("Location: index.php");
     }
 ?>
 
@@ -29,6 +29,8 @@
 <h1>Administração</h1>
 <hr/>   
 <div class="row">
+
+
     <div class="col-xs-6 col-sm-3 col-md-2">
         <a href="paginas/add.php" class="btn btn-primary">
             <div class="row">
@@ -42,6 +44,8 @@
             </div>
         </a>
     </div>
+
+
     <div class="col-xs-6 col-sm-3 col-md-2">
         <a href="paginas/eventos.php" class="btn btn-warning">
             <div class="row">
@@ -55,6 +59,23 @@
             </div>
         </a>
     </div>
+
+    <div class="col-xs-6 col-sm-3 col-md-2">
+        <a href="#" class="btn btn-success">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <i class="fa fa-tree fa-5x" aria-hidden="true"></i>
+
+                </div>
+                <div class="col-xs-12 text-center">
+                    <p>Novo Ambiente</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+
 </div>
 </main> 
     <?php include 'static/footer.php'; ?>

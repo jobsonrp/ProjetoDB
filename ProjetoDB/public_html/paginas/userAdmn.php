@@ -1,7 +1,7 @@
 <?php
     if (!file_exists("../controle/variaveis.php")) {
      
-        $file = fopen('../controle/variaveis.php', 'a');
+        $file = fopen('../controle/variaveis.php', 'w');
         if (isset($_POST['config'])) {
             $text  = " define('DB_HOSTNAME', '".$_POST['server']."');";
             $text .= " define('DB_USERNAME', '".$_POST['User']."');"; 
