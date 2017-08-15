@@ -77,8 +77,20 @@
 					</div>
 				<?php } ?>
 
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr>
+            <button type="button" class="btn-primary btn-lg pull-right " onclick="cadastro();">Cadastro</button>
+            <h2>Deseja se cadastrar no sistema?</h2>
+            <samp class="clearfix"></samp>
+        <hr>
+    </div> 
+    <script>
+        function cadastro(){
+            window.location.href='paginas/cadastro.php';
+        };
+    </script>
 </body>
 </html>
